@@ -1,0 +1,50 @@
+{
+  "name": "rowanvane",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src vite.config.ts",
+    "preview": "vite preview",
+    "analyze": "vite build --mode analyze"
+  },
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5.2.0",
+    "@fontsource-variable/inter": "^5.2.0",
+    "@gsap/react": "^2.1.0",
+    "@react-three/drei": "^10.7.0",
+    "@react-three/fiber": "^9.8.0",
+    "@react-three/postprocessing": "^3.1.0",
+    "detect-gpu": "^5.0.70",
+    "framer-motion": "^12.23.0",
+    "gsap": "^3.13.0",
+    "lenis": "^1.3.0",
+    "postprocessing": "^6.37.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@tailwindcss/vite": "^4.1.0",
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@types/three": "^0.180.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^17.12.0",
+    "rollup-plugin-visualizer": "^6.0.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "~5.9.0",
+    "typescript-eslint": "^8.70.1",
+    "vite": "^7.1.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}

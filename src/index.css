@@ -1,0 +1,303 @@
+/* ───────────────────────────────────────────────────────────────────────────
+   src/index.css
+   Fonts → design tokens (generated) → Tailwind theme mapping → base layer.
+   Every value below comes from src/theme/theme.config.ts. No colour, font,
+   duration or size is written by hand in this file.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* Self-hosted from Fontsource (SIL Open Font License 1.1). Latin subset only. */
+@font-face {
+  font-family: 'Fraunces Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/fraunces-latin-var.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/fraunces-latin-var-italic.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/inter-latin-var.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@import './theme/theme.tokens.css';
+@import 'tailwindcss';
+
+/* `inline` makes Tailwind emit `var(--rv-*)` directly rather than copying the
+   value, so the generated token file stays the live source at runtime. */
+@theme inline {
+  /* Palette */
+  --color-bg: var(--rv-color-bg);
+  --color-bg-elevated: var(--rv-color-bg-elevated);
+  --color-surface: var(--rv-color-surface);
+  --color-surface-alt: var(--rv-color-surface-alt);
+  --color-line: var(--rv-color-line);
+  --color-line-strong: var(--rv-color-line-strong);
+  --color-primary: var(--rv-color-primary);
+  --color-secondary: var(--rv-color-secondary);
+  --color-accent: var(--rv-color-accent);
+  --color-text: var(--rv-color-text);
+  --color-muted: var(--rv-color-text-muted);
+  --color-faint: var(--rv-color-text-faint);
+  --color-glow: var(--rv-color-glow);
+
+  /* Typography */
+  --font-display: var(--rv-font-display);
+  --font-body: var(--rv-font-body);
+  --font-label: var(--rv-font-label);
+  --text-xs: var(--rv-size-xs);
+  --text-sm: var(--rv-size-sm);
+  --text-base: var(--rv-size-base);
+  --text-lg: var(--rv-size-lg);
+  --text-xl: var(--rv-size-xl);
+  --text-2xl: var(--rv-size-2xl);
+  --text-3xl: var(--rv-size-3xl);
+  --text-4xl: var(--rv-size-4xl);
+  --text-5xl: var(--rv-size-5xl);
+  --text-label: var(--rv-size-label);
+  --font-weight-display: var(--rv-weight-display);
+  --font-weight-body: var(--rv-weight-body);
+  --font-weight-body-strong: var(--rv-weight-body-strong);
+  --leading-display: var(--rv-leading-display);
+  --leading-body: var(--rv-leading-body);
+  --tracking-display: var(--rv-tracking-display);
+  --tracking-label: var(--rv-tracking-label);
+
+  /* Motion */
+  --ease-primary: var(--rv-ease-primary);
+  --ease-in-out: var(--rv-ease-in-out);
+  --ease-ambient: var(--rv-ease-ambient);
+  --ease-standard: var(--rv-ease-standard);
+
+  /* Layout */
+  --container-shell: var(--rv-max-width);
+  --radius-token: var(--rv-radius);
+}
+
+/* ── Base ──────────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    background-color: var(--rv-color-bg);
+    /* Lenis drives scrolling; native smooth would fight it. */
+    scroll-behavior: auto;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--rv-font-body);
+    font-weight: var(--rv-weight-body);
+    line-height: var(--rv-leading-body);
+    color: var(--rv-color-text);
+    background-color: var(--rv-color-bg);
+    min-height: 100dvh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-synthesis-weight: none;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--rv-font-display);
+    font-weight: var(--rv-weight-display);
+    line-height: var(--rv-leading-display);
+    letter-spacing: var(--rv-tracking-display);
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  ::selection {
+    background-color: var(--rv-color-primary);
+    color: var(--rv-color-bg);
+  }
+
+  /* Visible focus on every interactive element (Section 12). */
+  :focus-visible {
+    outline: 2px solid var(--rv-color-primary);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+  :focus:not(:focus-visible) { outline: none; }
+
+  /* Native cursor is replaced by the custom one only where it is supported
+     and safe to do so — see the Cursor component, which toggles this class. */
+  html.rv-custom-cursor,
+  html.rv-custom-cursor * {
+    cursor: none !important;
+  }
+
+  /* Lenis */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-stopped { overflow: hidden; }
+}
+
+/* ── Components ────────────────────────────────────────────────────────── */
+@layer components {
+  /* Page gutter + max width. One class so every section lines up. */
+  .shell {
+    width: 100%;
+    max-width: var(--rv-max-width);
+    margin-inline: auto;
+    padding-inline: var(--rv-gutter);
+  }
+
+  /* The uppercase micro-label used by every section eyebrow. */
+  .label {
+    font-family: var(--rv-font-label);
+    font-weight: var(--rv-weight-body-strong);
+    font-size: var(--rv-size-label);
+    letter-spacing: var(--rv-tracking-label);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  /* Standard section rhythm. */
+  .section {
+    position: relative;
+    padding-block: var(--rv-section-gap);
+  }
+
+  /* Hairline rule in the theme's line colour. */
+  .hairline {
+    border: 0;
+    border-top: 1px solid var(--rv-color-line);
+  }
+
+  /* Link with a gold underline that wipes in from the left on hover. */
+  .link-wipe {
+    position: relative;
+    display: inline-block;
+    color: var(--rv-color-text);
+    text-decoration: none;
+    padding-bottom: 2px;
+  }
+  .link-wipe::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--rv-color-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--rv-dur-fast) var(--rv-ease-primary);
+  }
+  .link-wipe:hover::after,
+  .link-wipe:focus-visible::after { transform: scaleX(1); }
+
+  /* Motion duration helpers. Tailwind's duration-* namespace is not remapped by
+     the theme, so transitions read the scale from CSS directly. */
+  .t-fast { transition-duration: var(--rv-dur-fast); }
+  .t-base { transition-duration: var(--rv-dur-base); }
+  .t-slow { transition-duration: var(--rv-dur-slow); }
+  .e-primary { transition-timing-function: var(--rv-ease-primary); }
+  .e-standard { transition-timing-function: var(--rv-ease-standard); }
+
+  /* Grain. A CSS overlay rather than a canvas pass — see ui/Grain.tsx for why.
+     `.grain--live` is the ULTRA-tier extra layer: it steps the turbulence
+     offset at 12fps, which animates the grain without a per-frame 2D repaint. */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .grain--live {
+    opacity: 0.035;
+    /* steps() keeps it to 12 discrete jumps a second — indistinguishable from
+       film grain, and a twelfth of the work of a smooth animation. */
+    animation: grain-jitter 1s steps(1, end) infinite;
+  }
+
+  /* Seamless marquee. The track holds the item list twice and slides exactly
+     -50%, so the loop point is invisible. Duration comes from the component. */
+  .rv-marquee-left { animation-name: rv-marquee-left; animation-timing-function: linear; animation-iteration-count: infinite; }
+  .rv-marquee-right { animation-name: rv-marquee-right; animation-timing-function: linear; animation-iteration-count: infinite; }
+  .rv-marquee-left, .rv-marquee-right { will-change: transform; }
+
+  /* Skip link, visually hidden until focused (Section 12). */
+  .skip-link {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    padding: 0.75rem 1.25rem;
+    background: var(--rv-color-primary);
+    color: var(--rv-color-bg);
+    font-family: var(--rv-font-label);
+    font-size: var(--rv-size-label);
+    letter-spacing: var(--rv-tracking-label);
+    text-transform: uppercase;
+    text-decoration: none;
+    transform: translateY(-110%);
+    transition: transform var(--rv-dur-fast) var(--rv-ease-primary);
+  }
+  .skip-link:focus { transform: translateY(0); }
+
+  /* Fades the top and bottom edges of full-bleed content into the page. */
+  .edge-fade-y {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+  }
+  .edge-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 9%, black 91%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 9%, black 91%, transparent);
+  }
+}
+
+/* ── Keyframes ────────────────────────────────────────────────────────── */
+@keyframes rv-marquee-left {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+@keyframes rv-marquee-right {
+  from { transform: translate3d(-50%, 0, 0); }
+  to   { transform: translate3d(0, 0, 0); }
+}
+@keyframes grain-jitter {
+  0%   { background-position: 0 0; }
+  25%  { background-position: -37px 19px; }
+  50%  { background-position: 23px -41px; }
+  75%  { background-position: -13px -27px; }
+  100% { background-position: 0 0; }
+}
+
+/* ── Reduced motion (Section 9) ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

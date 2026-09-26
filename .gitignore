@@ -1,0 +1,13 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+.vite
+
+# Generated from src/theme/theme.config.ts on every dev/build.
+src/theme/theme.tokens.css
+
+# Bundle report from `npm run analyze`
+bundle-report.html
+stats.html
